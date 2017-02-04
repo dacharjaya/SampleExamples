@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Palindrome test</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+ 	<div class="container">
+ 		
+		<div class="page-header text-center">
+			<h1>Input text to test Palindrome.</h1>
+			<input type="text" id="input" placeholder="Enter text" /> 
+			<span> Palindrome: </span>
+			<span id="status"> true </span>
+		</div> 	
+		<div class="jumbotron">
+			<h2>Steps to do</h2>
+			<ol>
+				<li>
+					lowerCase the input and replace regular expression with /[^A-Za-z0-9]/g or /[W]/g
+				</li>
+				<li>
+					reverse the input
+					split('').reverse('').join('')
+				</li>
+				<li>
+					match the input and reversed input
+				</li>
+			</ol>
+
+			<h2>Actual Implementation</h2>
+			$("#input").keyup(function() { <br/>
+			&nbsp;&nbsp;var re = /[^A-Za-z0-9]/g; <br/>
+
+			&nbsp;&nbsp;var reInput = $("#input").val().toLowerCase().replace(re,'');<br/>
+			&nbsp;&nbsp;var reverseReInput = reInput.split('').reverse().join('');<br/>
+				<br/>
+			&nbsp;&nbsp;$('#status').text(reInput === reverseReInput);<br/>
+			});
+		</div>
+ 	</div>
+ 	
+	<script type="text/javascript">
+		$("#input").keyup(function() {
+			var re = /[^A-Za-z0-9]/g;
+
+			var reInput = $("#input").val().toLowerCase().replace(re,'');
+			var reverseReInput = reInput.split('').reverse().join('');
+			
+			$('#status').text(reInput === reverseReInput);
+		}); 
+	</script>
+</body>
+</html>	
